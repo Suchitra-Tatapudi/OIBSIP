@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Ftemperature_3534501&psig=AOvVaw0tV0iI_70eH-Ls7Q88Fbg5&ust=1697983941875000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNCOqo6qh4IDFQAAAAAdAAAAABAl">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="temp_conver.css">
+</head>
+<body>
+<div class="temp-con">
+<div>
+  <label>Temperature:</label>
+  <input type="text" id="in_field" placeholder="Enter temperature...">
+</div>
+<div>
+  <label>Unit:</label>
+  <select id="unit">
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+  </select>
+</div>
+<button onclick="convert_temp()">Convert</button>
+<div id="result"></div>
+</div>
+<script>
+  function convert_temp() {
+    const temperature = document.getElementById('in_field').value;
+    const unit = document.getElementById('unit').value;
+    const resultElement = document.getElementById('result');
+    let convertedTemperature;
+    if (unit === 'celsius') {
+      convertedTemperature = (parseFloat(temperature) * 9/5) + 32;
+      resultElement.innerHTML = `${convertedTemperature}°F`;
+    } else if (unit === 'fahrenheit') {
+      convertedTemperature = (parseFloat(temperature) - 32) * 5/9;
+      resultElement.innerHTML = `${convertedTemperature}°C`;
+    } 
+  }
+</script>
+
+</body>
+</html>
